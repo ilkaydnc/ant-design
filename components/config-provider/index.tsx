@@ -80,6 +80,7 @@ export interface ConfigProviderProps {
   };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
+  theme?: Theme
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -264,6 +265,10 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
       notification.config({
         rtl: props.direction === 'rtl',
       });
+    }
+
+    if (props.theme) {
+      setGlobalConfig({ theme })
     }
   }, [props.direction]);
 
